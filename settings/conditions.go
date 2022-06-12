@@ -70,12 +70,16 @@ func GetFunctionalConditions() [](func(m map[string]string) (bool, string)) {
 	}
 
 	isAuthorization := func(m map[string]string) (bool, string) {
-		return strings.Split(m["MTI"], "")[0] == "0" && strings.Split(m["MTI"], "")[1] == "1", "Authorization"
+		return (strings.Split(m["MTI"], "")[0] == "0" && (strings.Split(m["MTI"], "")[1] == "1") && !(strings.Split(m["MTI"], "")[2] == "2" && strings.Split(m["MTI"], "")[3] == "0") || strings.Split(m["MTI"], "")[1] == "2"), "Authorization"
 	}
 
 	isAdvice := func(m map[string]string) (bool, string) {
-		return strings.Split(m["MTI"], "")[2] == "2" && strings.Split(m["MTI"], "")[3] == "0", "Advice"
+		return (strings.Split(m["MTI"], "")[2] == "2" && strings.Split(m["MTI"], "")[3] == "0"), "Advice"
 	}
+
+	// isPOS := func(m map[string]string) (bool, string) {
+	// 	return m["F18"] == "6011", "POS"
+	// }
 
 
 	return [](func(m map[string]string) (bool, string)){isAtm, 
