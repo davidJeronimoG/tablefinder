@@ -6,7 +6,7 @@ import "strings"
 func GetFunctionalConditions() [](func(m map[string]string) (bool, string)) {
 
 	isAtm := func(m map[string]string) (bool, string) {
-		return m["F18"] == "6011", "ATM"
+		return m["F18"] == "6011" && m["F3.1"] != "20", "ATM"
 	}
 
 	isCardnNotPresent := func(m map[string]string) (bool, string) {
@@ -21,12 +21,12 @@ func GetFunctionalConditions() [](func(m map[string]string) (bool, string)) {
 		return m["F22.1"] == "05" || m["F22.1"] == "07" || m["F22.1"] == "95", "VSDC"
 	}
 
-	isNotVSDC := func(m map[string]string) (bool, string) {
-		return m["F22.1"] == "02" || m["F22.1"] == "03" || m["F22.1"] == "90" || m["F22.1"] == "91", "NotVSDC"
-	}
+	// isNotVSDC := func(m map[string]string) (bool, string) {
+	// 	return m["F22.1"] == "02" || m["F22.1"] == "03" || m["F22.1"] == "90" || m["F22.1"] == "91", "NotVSDC"
+	// }
 
 	isTandE := func(m map[string]string) (bool, string) {
-		return m["F62.4"] == "H" || m["F62,4"] == "A", "TandE"
+		return m["F62.4"] == "H" || m["F62.4"] == "A", "TandE"
 	}
 
 	isCPS := func(m map[string]string) (bool, string) {
@@ -61,34 +61,42 @@ func GetFunctionalConditions() [](func(m map[string]string) (bool, string)) {
 		return m["F3.1"] == "70" || m["F3.1"] == "72", "PINChangeUnblock"
 	}
 
+	isPurchase := func(m map[string]string) (bool, string) {
+		return m["F3.1"] == "00", "Purchase"
+	}
+
 	isIncrementalAuthorization := func(m map[string]string) (bool, string) {
 		return m["F62.1"] == "I", "IncrementalAuthorization"
 	}
 
 	isReversal := func(m map[string]string) (bool, string) {
-		return strings.Split(m["MTI"], "")[0] == "0" && strings.Split(m["MTI"], "")[1] == "4", "Reversal"
+		return (strings.Split(m["MTI"], "")[0] == "0" && strings.Split(m["MTI"], "")[1] == "4"                                           && !(strings.Split(m["MTI"], "")[2] == "2")), "Reversal"
 	}
 
 	isAuthorization := func(m map[string]string) (bool, string) {
-		return (strings.Split(m["MTI"], "")[0] == "0" && (strings.Split(m["MTI"], "")[1] == "1") && !(strings.Split(m["MTI"], "")[2] == "2" && strings.Split(m["MTI"], "")[3] == "0") || strings.Split(m["MTI"], "")[1] == "2"), "Authorization"
+		return strings.Split(m["MTI"], "")[0] == "0" && (strings.Split(m["MTI"], "")[1] == "1" || strings.Split(m["MTI"], "")[1] == "2") && !((strings.Split(m["MTI"], "")[2] == "2")), "Authorization"
 	}
 
 	isAdvice := func(m map[string]string) (bool, string) {
-		return (strings.Split(m["MTI"], "")[2] == "2" && strings.Split(m["MTI"], "")[3] == "0"), "Advice"
+		return strings.Split(m["MTI"], "")[0] == "0" && (strings.Split(m["MTI"], "")[1] == "1" || strings.Split(m["MTI"], "")[1] == "2") && (strings.Split(m["MTI"], "")[2] == "2"), "Advice"
+	}
+
+	isAdviceReversal := func(m map[string]string) (bool, string) {
+		return (strings.Split(m["MTI"], "")[0] == "0" && strings.Split(m["MTI"], "")[1] == "4"                                            && (strings.Split(m["MTI"], "")[2] == "2")), "AdviceReversal"
 	}
 
 	// isPOS := func(m map[string]string) (bool, string) {
-	// 	return m["F18"] == "6011", "POS"
+	// 	return m["F3.1"] == "00", "POS"
 	// }
 
 
 	return [](func(m map[string]string) (bool, string)){isAtm, 
 		isCardnNotPresent, isCardPresent, 
-		isVSDC, isNotVSDC, isTandE, isCPS, 
+		isVSDC, isTandE, isCPS, 
 		isAccountVerification, isCreditVoucher,
 		isBalanceInquiry, isCardAccountTransfer, 
 		isDeferredAuthorization, isWithPIN,
 		isPINChangeUnblock, isIncrementalAuthorization,
-		isReversal, isAuthorization, isAdvice}
+		isReversal, isAuthorization, isAdvice, isPurchase, isAdviceReversal}
 
 }
