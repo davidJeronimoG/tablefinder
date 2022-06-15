@@ -30,4 +30,6 @@ func main() {
 	service.FilterTables("tye1.3a", "./cases/tye1.3a.txt")
 	service.FilterTables("tye1.3b", "./cases/tye1.3b.txt")
 	service.FilterTables("tye1.3c", "./cases/tye1.3c.txt")
+	service.FilterFolder("./cases/casosRetailAndATM-TXT")
+	service.GetCaseMap("./cases/casosRetailAndATM-TXT/retail-issuing-qVSDC-v0s-9.2.txt")
 }

@@ -2,6 +2,8 @@ package service
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
 
 	"github.com/davidJeronimoG/tablefinder/settings"
 	"github.com/davidJeronimoG/tablefinder/utilities"
@@ -46,8 +48,8 @@ func FilterTables(caseName string, file string) {
 				scenery.Tables = append(scenery.Tables[:i], scenery.Tables[i+1:]...)
 				break
 			}
-	}}
-
+		}
+	}
 
 	result := ""
 	for _, table := range scenery.Tables {
@@ -62,4 +64,27 @@ type Scenery struct {
 	Values     map[string]string
 	Tables     []settings.Table
 	Conditions [](func(m map[string]string) (bool, string))
+}
+
+func FilterFolder(folder string) {
+	files, err := ioutil.ReadDir(folder)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, f := range files {
+		nombre := f.Name()
+		FilterTables(nombre, folder+"/"+nombre)
+	}
+
+}
+
+// MapOfCase is a map key-value of a case
+func GetCaseMap(file string) {
+	caseOfUse, _ := utilities.GetValuesFromFile(file)
+
+	scenery := Scenery{
+		Values: caseOfUse,
+	}
+	fmt.Println(scenery.Values)
 }
