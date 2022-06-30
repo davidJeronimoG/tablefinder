@@ -2,7 +2,7 @@ package settings
 
 type Table struct {
 	Name string
-	// Map of conditions where 0 = false, 1 = true, 2 = unknown. It is not necessary to map the unknowns.
+	// Map of conditions where 0 = false, 1 = true, 2 = unknown.
 	ConditionsValues map[string]int
 }
 
@@ -16,6 +16,7 @@ func GetTables() []Table {
 			"CardPresent":              2,
 			"VSDC":                     0,
 			"TandE":                    2,
+			"POS":                      2,
 			"CPS":                      0,
 			"AccountVerification":      2,
 			"CreditVoucher":            0,
@@ -29,6 +30,7 @@ func GetTables() []Table {
 			"Authorization":            1,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -41,6 +43,7 @@ func GetTables() []Table {
 			"VSDC":                     0,
 			"TandE":                    1,
 			"CPS":                      1,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            0,
 			"BalanceInquiry":           0,
@@ -53,6 +56,7 @@ func GetTables() []Table {
 			"Authorization":            1,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -65,6 +69,7 @@ func GetTables() []Table {
 			"VSDC":                     0,
 			"TandE":                    1,
 			"CPS":                      1,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            2,
 			"BalanceInquiry":           2,
@@ -76,6 +81,8 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"Purchase":                 2,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -88,6 +95,7 @@ func GetTables() []Table {
 			"VSDC":                     0,
 			"TandE":                    2,
 			"CPS":                      2,
+			"POS":                      2,
 			"AccountVerification":      1,
 			"CreditVoucher":            2,
 			"BalanceInquiry":           2,
@@ -99,6 +107,8 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"Purchase":                 0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -111,6 +121,7 @@ func GetTables() []Table {
 			"VSDC":                     2,
 			"TandE":                    2,
 			"CPS":                      2,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            1,
 			"BalanceInquiry":           0,
@@ -123,6 +134,7 @@ func GetTables() []Table {
 			"Authorization":            1,
 			"Advice":                   0,
 			"Purchase":                 0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -148,6 +160,7 @@ func GetTables() []Table {
 			"Authorization":            0,
 			"Advice":                   1,
 			"Purchase":                 2,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -173,6 +186,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -198,6 +212,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -223,6 +238,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -248,6 +264,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -273,6 +290,7 @@ func GetTables() []Table {
 			"Authorization":            1,
 			"Advice":                   0,
 			"Purchase":                 0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -298,6 +316,7 @@ func GetTables() []Table {
 			"Authorization":            0,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -323,6 +342,7 @@ func GetTables() []Table {
 			"Authorization":            0,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -348,6 +368,7 @@ func GetTables() []Table {
 			"Authorization":            0,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -360,6 +381,7 @@ func GetTables() []Table {
 			"VSDC":                     0,
 			"TandE":                    1,
 			"CPS":                      1,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            2,
 			"BalanceInquiry":           2,
@@ -371,6 +393,8 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   0,
+			"Purchase":                 2,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -387,6 +411,7 @@ func GetTables() []Table {
 			"AccountVerification":      2,
 			"CreditVoucher":            2,
 			"BalanceInquiry":           2,
+			"Purchase":                 2,
 			"CardAccountTransfer":      2,
 			"DeferredAuthorization":    2,
 			"WithPIN":                  2,
@@ -395,6 +420,7 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   2,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -420,6 +446,7 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -442,9 +469,10 @@ func GetTables() []Table {
 			"PINChangeUnblock":         2,
 			"IncrementalAuthorization": 2,
 			"Reversal":                 1,
-			"Authorization":            2,
-			"Advice":                   2,
+			"Authorization":            0,
+			"Advice":                   0,
 			"Purchase":                 0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -470,6 +498,7 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -508,6 +537,7 @@ func GetTables() []Table {
 			"VSDC":                     1,
 			"TandE":                    2,
 			"CPS":                      0,
+			"POS":                      2,
 			"AccountVerification":      0,
 			"CreditVoucher":            0,
 			"BalanceInquiry":           0,
@@ -520,6 +550,7 @@ func GetTables() []Table {
 			"Authorization":            1,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -532,6 +563,7 @@ func GetTables() []Table {
 			"VSDC":                     1,
 			"TandE":                    2,
 			"CPS":                      2,
+			"POS":                      2,
 			"AccountVerification":      1,
 			"CreditVoucher":            2,
 			"BalanceInquiry":           2,
@@ -544,6 +576,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -556,6 +589,7 @@ func GetTables() []Table {
 			"VSDC":                     1,
 			"TandE":                    1,
 			"CPS":                      1,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            0,
 			"BalanceInquiry":           0,
@@ -568,6 +602,7 @@ func GetTables() []Table {
 			"Authorization":            1,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -585,6 +620,7 @@ func GetTables() []Table {
 			"CreditVoucher":            2,
 			"BalanceInquiry":           0,
 			"CardAccountTransfer":      2,
+			"Purchase":                 2,
 			"DeferredAuthorization":    2,
 			"WithPIN":                  2,
 			"PINChangeUnblock":         2,
@@ -592,6 +628,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -609,6 +646,7 @@ func GetTables() []Table {
 			"CreditVoucher":            2,
 			"BalanceInquiry":           2,
 			"CardAccountTransfer":      2,
+			"Purchase":                 2,
 			"DeferredAuthorization":    2,
 			"WithPIN":                  1,
 			"PINChangeUnblock":         2,
@@ -616,6 +654,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -641,6 +680,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -654,6 +694,7 @@ func GetTables() []Table {
 			"VSDC":                     1,
 			"TandE":                    2,
 			"CPS":                      2,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            0,
 			"BalanceInquiry":           0,
@@ -665,6 +706,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -690,6 +732,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            1,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -715,6 +758,7 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -727,6 +771,7 @@ func GetTables() []Table {
 			"VSDC":                     1,
 			"TandE":                    2,
 			"CPS":                      2,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            2,
 			"BalanceInquiry":           2,
@@ -739,6 +784,7 @@ func GetTables() []Table {
 			"Reversal":                 0,
 			"Authorization":            0,
 			"Advice":                   1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -763,8 +809,8 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   0,
-			"ReversalAdvice":           0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -790,6 +836,7 @@ func GetTables() []Table {
 			"Authorization":            0,
 			"Advice":                   0,
 			"Purchase":                 1,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -815,6 +862,7 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -840,6 +888,7 @@ func GetTables() []Table {
 			"Reversal":                 1,
 			"Authorization":            0,
 			"Advice":                   0,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -865,6 +914,7 @@ func GetTables() []Table {
 			"Authorization":            0,
 			"Advice":                   0,
 			"Purchase":                 2,
+			"AdviceReversal":           0,
 		},
 	}
 
@@ -877,6 +927,7 @@ func GetTables() []Table {
 			"VSDC":                     1,
 			"TandE":                    2,
 			"CPS":                      2,
+			"POS":                      2,
 			"AccountVerification":      2,
 			"CreditVoucher":            0,
 			"BalanceInquiry":           0,
@@ -889,6 +940,7 @@ func GetTables() []Table {
 			"Authorization":            0,
 			"Advice":                   0,
 			"Purchase":                 0,
+			"AdviceReversal":           0,
 		},
 	}
 

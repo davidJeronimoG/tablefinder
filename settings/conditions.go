@@ -53,16 +53,12 @@ func GetFunctionalConditions() [](func(m map[string]string) (bool, string)) {
 	// }
 
 	isTandE := func(m map[string]string) (bool, string) {
-		if "F62" == "" {
-			return false, "xxxxx"
-		}
+
 		return m["F62.4"] == "H" || m["F62.4"] == "A", "TandE"
 	}
 
 	isCPS := func(m map[string]string) (bool, string) {
-		if "F62" == "" {
-			return false, "xxxxx"
-		}
+
 		return m["F62.3"] != "", "CPS"
 	}
 
@@ -71,45 +67,35 @@ func GetFunctionalConditions() [](func(m map[string]string) (bool, string)) {
 	}
 
 	isCreditVoucher := func(m map[string]string) (bool, string) {
-		if "F3" == "" {
-			return false, "xxxxx"
-		}
+
 		return m["F3.1"] == "20", "CreditVoucher"
 	}
 
 	isBalanceInquiry := func(m map[string]string) (bool, string) {
-		if "F3" == "" {
-			return false, "xxxxx"
-		}
+
 		return m["F3.1"] == "30", "BalanceInquiry"
 	}
 
 	isCardAccountTransfer := func(m map[string]string) (bool, string) {
-		if "F3" == "" {
-			return false, "xxxxx"
-		}
+
 		return m["F3.1"] == "40", "CardAccountTransfer"
 	}
 
-	isDeferredAuthorization := func(m map[string]string) (bool, string) {
-		return m["F63.3"] == "5206", "DeferredAuthorization"
-	}
+	// isDeferredAuthorization := func(m map[string]string) (bool, string) {
+	// 	return m["F63.3"] == "5206", "DeferredAuthorization"
+	// }
 
 	isWithPIN := func(m map[string]string) (bool, string) {
 		return m["F52"] != "", "WithPIN"
 	}
 
 	isPINChangeUnblock := func(m map[string]string) (bool, string) {
-		if "F3" == "" {
-			return false, "xxxxx"
-		}
+
 		return m["F3.1"] == "70" || m["F3.1"] == "72", "PINChangeUnblock"
 	}
 
 	isPurchase := func(m map[string]string) (bool, string) {
-		if "F3" == "" {
-			return false, "xxxxx"
-		}
+
 		return m["F3.1"] == "00", "Purchase"
 	}
 
@@ -144,8 +130,7 @@ func GetFunctionalConditions() [](func(m map[string]string) (bool, string)) {
 		isCardnNotPresent, isCardPresent,
 		isVSDC, isTandE, isCPS,
 		isAccountVerification, isCreditVoucher,
-		isBalanceInquiry, isCardAccountTransfer,
-		isDeferredAuthorization, isWithPIN,
+		isBalanceInquiry, isCardAccountTransfer, isWithPIN,
 		isPINChangeUnblock, isIncrementalAuthorization,
 		isReversal, isAuthorization, isAdvice, isPurchase, isAdviceReversal}
 
